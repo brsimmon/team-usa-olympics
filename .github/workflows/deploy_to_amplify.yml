@@ -1,4 +1,4 @@
-name: Additionally API Deployment
+name: Team USA Olympics API Deployment
 
 on:
   push:
