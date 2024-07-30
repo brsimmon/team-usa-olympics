@@ -104,6 +104,8 @@
         .then(result => alert(JSON.parse(result).body))
         .catch(error => console.log('error', error));
 
+        await delay(5000);
+        
         history.back()
     }
     </script>
@@ -140,10 +142,27 @@
             </div>
 
             <h2>Payment Method</h2>
-            <!-- set button onclick method to call function we defined passing input values as parameters -->
-            <button type="button" onclick="callAPI(document.getElementById('name').value)">DB stuff</button>
+            <div class="form-group">
+                <label for="card-number">Card Number</label>
+                <input type="text" id="card-number" name="card-number" required>
+            </div>
+            <div class="form-group">
+                <label for="exp-month">Expiry Month</label>
+                <input type="text" id="exp-month" name="exp-month" required>
+            </div>
+            <div class="form-group">
+                <label for="exp-year">Expiry Year</label>
+                <input type="text" id="exp-year" name="exp-year" required>
+            </div>
+            <div class="form-group">
+                <label for="cvv">CVV</label>
+                <input type="text" id="cvv" name="cvv" required>
+            </div>
             
-            <a href="https://www.paypal.com/signin" class="pay-now-button">PayPal</a>
+            <!-- set button onclick method to call function we defined passing input values as parameters -->
+            <button type="button" class="pay-now-button" onclick="callAPI(document.getElementById('name').value)">Pay</button>
+            
+<!--             <a href="https://www.paypal.com/signin" class="pay-now-button">PayPal</a> -->
         </div>
         <div class="right">
             <h2>Order Summary</h2>
