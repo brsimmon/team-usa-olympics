@@ -82,7 +82,31 @@
             text-decoration: none;
         }
     </style>
+    
+    <script>
+        var callAPI = (name)=>{
+        // Instantiate a headers object
+        var myHeaders = new Headers();
+        // Add content type header to object
+        myHeaders.append("Content-Type", "application/json");
+        // Using built in JSON utility package turn object to string and store in a variable
+        var raw = JSON.stringify({"name": name});
+        // Create a JSON object with parameters for API call and store in a variable
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+        // Make API call with parameters and use promises to get response
+        fetch("https://drhpx5xg2b.execute-api.us-east-1.amazonaws.com/dev", requestOptions)
+        .then(response => response.text())
+        .then(result => alert(JSON.parse(result).body))
+        .catch(error => console.log('error', error));
+    }
+    </script>
 </head>
+
 <body>
     <h1>Checkout</h1>
     <div class="container">
@@ -114,6 +138,9 @@
             </div>
 
             <h2>Payment Method</h2>
+            <!-- set button onclick method to call function we defined passing input values as parameters -->
+            <button type="button" onclick="callAPI(document.getElementById('name').value)">DB stuff</button>
+            
             <a href="https://www.paypal.com/signin" class="pay-now-button">PayPal</a>
         </div>
         <div class="right">
