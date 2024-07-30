@@ -103,6 +103,8 @@
         .then(response => response.text())
         .then(result => alert(JSON.parse(result).body))
         .catch(error => console.log('error', error));
+
+        window.location.href='https://www.paypal.com/signin'
     }
     </script>
 </head>
