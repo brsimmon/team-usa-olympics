@@ -112,6 +112,18 @@
             text-decoration: none;
             cursor: pointer;
         }
+	.checkout-button {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000; /* Ensure it stays on top of other elements */
+        }	 
     </style>
 </head>
 <body>
@@ -137,6 +149,7 @@
             <h2>Men's Team USA 2024 Olympics Polo</h2>
             <p>Men's Polo Ralph Lauren White Team USA 2024 Summer Olympics Closing Ceremony Polo</p>
         </div> -->
+	<!-- Additional products can be added here -->
 
     <!-- The Modal -->
     <div id="myModal" class="modal">
@@ -194,9 +207,10 @@
             <!-- alert('Item added to cart.'); -->
             modal.style.display = 'none';
         }
-
+	
         const checkoutButton = document.createElement('button');
         checkoutButton.textContent = 'Checkout';
+	checkoutButton.className = 'checkout-button';									 
         checkoutButton.onclick = function() {
             localStorage.setItem('cart', JSON.stringify(cart));
             window.location.href = 'https://main.d1zn5kuumu3yd.amplifyapp.com/checkout.html';
